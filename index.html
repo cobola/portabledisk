@@ -1,0 +1,553 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>高校数学课程教学系列报告会</title>
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pdfobject.js"></script>
+    <script type="text/javascript">
+
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        win.maximize();
+
+
+        var ppath = require('path');
+        var flashTrust = require('nw-flash-trust');
+        var appName = 'luntandisk';
+
+        var trustManager;
+
+        try {
+            trustManager = flashTrust.initSync(appName);
+        } catch (err) {
+        }
+
+        var appPath = ppath.dirname(process.execPath);
+
+        function toHep() {
+            gui.Shell.openExternal("http://www.hep.com.cn");
+        }
+
+        function toCnCourse() {
+            gui.Shell.openExternal("http://mathforum.cncourse.com");
+        }
+
+        function toGithub() {
+            gui.Shell.openExternal("https://github.com/cobola/portabledisk");
+        }
+
+        function display(path, path2) {
+
+
+            if (path != '') {
+                try {
+                    trustManager.add(appPath + "/" + path);
+                } catch (err) {
+                }
+                $("#swf").html('<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"><embed width="100%" height="1000px" menu="true" loop="true" play="true" id="swf_obj"  src="' + path +
+                        '" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"  wmode="transparent"  allowFullScreen="true"                               allowFullScreenInteractive="true"></embed> <param name="allowFullScreen" value="true"/><param name="allowFullScreenInteractive" value="true"/><param name="quality" value="high"></object>');
+            } else {
+                $("#swf").empty();
+
+            }
+            if (path2 != '') {
+
+                $("#video").html('<video src="' + path2 + '" controls="controls" autoplay="autoplay" width="100%"> 您的浏览器不支持 video 标签。 </video>');
+
+            } else {
+                $("#video").empty();
+
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: #002e72;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+    <div class="text-center"><img src="images/banner.jpg" width="100%"/></div>
+</div>
+<div class="row" style="background:#3b81BD;border-radius: 10px;margin-top:5px;">
+<div class="col-lg-3">
+<div class="btn-group-vertical btn-lg" style="padding:8px 0px 0px 6px;width:256px;">
+<button type="button" class="btn btn-primary  btn-lg"
+        onClick="display('swf/jianying.swf','')">论坛剪影
+</button>
+<div class="btn-group">
+    <button id="btnGroupVerticalDrop1" type="button"
+            class="btn btn-info dropdown-toggle  btn-lg" data-toggle="dropdown"
+            onClick="display('swf/dahui.swf','')">大会报告 <span
+            class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1"
+        style="width: 480px;">
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">徐宗本                        </span> <a
+                    href="javascript:display('','vp8/101.webm')"
+                    class="btn btn-default">大规模在线教育中的教、学、管与建</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">白峰杉                        </span> <a
+                    href="javascript:display('','vp8/102.webm')"
+                    class="btn btn-default">从视频公开课到MOOCs再到Flipped classroom</a>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">林亚南                        </span> <a
+                    href="javascript:display('','vp8/103.webm')"
+                    class="btn btn-default">数学专业课程建设和资源共享的思考</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">朱士信                        </span> <a
+                    href="javascript:display('','vp8/104.webm')"
+                    class="btn btn-default">“高等数学”资源共享课建设的体会与思考</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">吴孟达                        </span> <a
+                    href="javascript:display('','vp8/105.webm')"
+                    class="btn btn-default">“数学建模与数学实验”精品开放课程建设的实践与思考</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">李庆忠                        </span> <a
+                    href="javascript:display('','vp8/106.webm')"
+                    class="btn btn-default">以学科建设带动本科教学水平提高</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">郑伟安                        </span> <a
+                    href="javascript:display('','vp8/107.webm')"
+                    class="btn btn-default">我们学习数学并走向应用</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">罗宝华                        </span> <a
+                    href="javascript:display('','vp8/108.webm')"
+                    class="btn btn-default">微课之斐波那契(Fibonacci)数列</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">李玻                        </span> <a
+                    href="javascript:display('','vp8/109.webm')"
+                    class="btn btn-default">微课之事件的独立性</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">刘雄伟                        </span> <a
+                    href="javascript:display('','vp8/110.webm')"
+                    class="btn btn-default">微课之方向导数的概念</a></div>
+        </li>
+
+
+    </ul>
+</div>
+<div class="btn-group">
+    <button id="btnGroupVerticalDrop2" type="button"
+            class="btn btn-info dropdown-toggle  btn-lg" data-toggle="dropdown"
+            onClick="display('swf/diyi.swf','')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一分会场&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1"
+        style="width: 480px;">
+
+
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">李雨生                        </span> <a
+                    href="javascript:display('swf/201.pdf.swf','vp8/201.webm')"
+                    class="btn btn-default">从实际出发，完善高等数学精品开放课程建设</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">刘刚                        </span> <a
+                    href="javascript:display('swf/202.pdf.swf','vp8/202.webm')"
+                    class="btn btn-default">面向国际化的数学基础课教学认识与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                      class="btn  btn-primary">丁正生                        </span> <a
+                    href="javascript:display('','vp8/203.webm')"
+                    class="btn btn-default">概率论与数理统计精品课程转型升级的认识与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">张霞                        </span> <a
+                    href="javascript:display('swf/204.pdf.swf','vp8/204.webm')"
+                    class="btn btn-default">大学数学模块化教学改革的探索与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">李波                        </span> <a
+                    href="javascript:display('swf/205.pdf.swf','vp8/205.webm')"
+                    class="btn btn-default">围绕教学设计的资源建设是新型开放课程的根本保障</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">丁玮                        </span> <a
+                    href="javascript:display('swf/206.pdf.swf','vp8/206.webm')"
+                    class="btn btn-default">数学分析教改经验交流</a></div>
+        </li>
+    </ul>
+</div>
+<div class="btn-group">
+    <button id="btnGroupVerticalDrop3" type="button"
+            class="btn btn-info dropdown-toggle  btn-lg" data-toggle="dropdown"
+            onClick="display('swf/dier.swf','')">第二分会场 <span
+            class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1"
+        style="width: 480px;">
+
+
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">胡良剑                        </span> <a
+                    href="javascript:display('swf/301.pdf.swf','vp8/301.webm')"
+                    class="btn btn-default">在数学课程中融入软件实验教学的一些问题</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">高淑萍                        </span> <a
+                    href="javascript:display('swf/302.pdf.swf','vp8/302.webm')"
+                    class="btn btn-default">线性代数“三阶段”考试方式的教学改革探索与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">毕志伟                        </span> <a
+                    href="javascript:display('swf/303.pdf.swf','vp8/303.webm')"
+                    class="btn btn-default">适应个性化学习需求的教学模式探索</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">苏变萍                        </span> <a
+                    href="javascript:display('swf/304.pdf.swf','vp8/304.webm')"
+                    class="btn btn-default">复变函数与积分变换数字化课程建设的思考</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">李鹤                        </span> <a
+                    href="javascript:display('swf/305.pdf.swf','vp8/305.webm')"
+                    class="btn btn-default">Clicker系统在课堂互动教学中的应用</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">尹逊波                        </span> <a
+                    href="javascript:display('swf/306.pdf.swf','vp8/306.webm')"
+                    class="btn btn-default">MOOC大潮下高等数学的改革与发展</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">张小平                        </span> <a
+                    href="javascript:display('swf/307.pdf.swf','vp8/307.webm')"
+                    class="btn btn-default">翻转课堂教学模式研究——基于高等数学教学中的实践</a></div>
+        </li>
+
+
+    </ul>
+</div>
+<div class="btn-group">
+    <button id="btnGroupVerticalDrop4" type="button"
+            class="btn btn-success dropdown-toggle  btn-lg" data-toggle="dropdown"
+            onClick="display('swf/shumian.swf','')">书面报告
+        <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1"
+        style="width: 660px;">
+
+
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">张静                        </span> <a
+                    href="javascript:display('swf/401.pdf.swf','')"
+                    class="btn btn-default">“概率论与数理统计”课程中的例题教学</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">孙书荣                        </span> <a
+                    href="javascript:display('swf/402.pdf.swf','')"
+                    class="btn btn-default">常微分方程教学改革的思考——以济南大学百门课程教学改革常微分方程为例</a>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">孙玉秋                        </span> <a
+                    href="javascript:display('swf/403.pdf.swf','')"
+                    class="btn btn-default">从教师不再垄断知识传播的视角看大学数学教学改革途径</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">王炜                        </span> <a
+                    href="javascript:display('swf/404.pdf.swf','')"
+                    class="btn btn-default">大学工科数学实验课程教学的一些探讨</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">郝志峰                        </span> <a
+                    href="javascript:display('swf/405.pdf.swf','')"
+                    class="btn btn-default">大学数学学习过程信息化与优质资源共享的探索与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">吴纪桃                        </span> <a
+                    href="javascript:display('swf/406.pdf.swf','')"
+                    class="btn btn-default">高等数学多重反馈多点控制教学系统的建设与应用</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">胡建根                        </span> <a
+                    href="javascript:display('swf/407.pdf.swf','')"
+                    class="btn btn-default">高等数学分层教学模式探讨</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">余达锦                        </span> <a
+                    href="javascript:display('swf/408.pdf.swf','')"
+                    class="btn btn-default">高等数学研究型教学的实践与认识</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">王静                        </span> <a
+                    href="javascript:display('swf/409.pdf.swf','')"
+                    class="btn btn-default">高等数学研讨课的实践与体会</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">闫桂峰                        </span> <a
+                    href="javascript:display('swf/410.pdf.swf','')"
+                    class="btn btn-default">工科线性代数课程教学改革的思考与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">孙玉泉                        </span> <a
+                    href="javascript:display('swf/411.pdf.swf','')"
+                    class="btn btn-default">关于数学精品开放课程教学改革的认识与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">杨美妮                        </span> <a
+                    href="javascript:display('swf/412.pdf.swf','')"
+                    class="btn btn-default">国外网络开放课程对我国精品课程建设的启示</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">马儒宁                        </span> <a
+                    href="javascript:display('swf/413.pdf.swf','')"
+                    class="btn btn-default">基于研讨班和创新能力培养的高等数学教学改革</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">陈现平                        </span> <a
+                    href="javascript:display('swf/414.pdf.swf','')"
+                    class="btn btn-default">开放课程背景下数学博客的建设与应用</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">黄东卫                        </span> <a
+                    href="javascript:display('swf/415.pdf.swf','')"
+                    class="btn btn-default">慕课引发的大学数学教学模式的点滴思考</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">徐岩                        </span> <a
+                    href="javascript:display('swf/416.pdf.swf','')"
+                    class="btn btn-default">浅谈工科数学分析的课程建设</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">冯有前                        </span> <a
+                    href="javascript:display('swf/417.pdf.swf','')"
+                    class="btn btn-default">数学类国家级精品资源共享课建设的探索与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">胡伟文                        </span> <a
+                    href="javascript:display('swf/418.pdf.swf','')"
+                    class="btn btn-default">数学模型课程的“三结合”教学模式</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">韩淑霞                        </span> <a
+                    href="javascript:display('swf/419.pdf.swf','')"
+                    class="btn btn-default">微积分教学中应用MATLAB的探索和认识</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">陈建华                        </span> <a
+                    href="javascript:display('swf/420.pdf.swf','')"
+                    class="btn btn-default">线性代数的掌握与教学——从处理学生错误谈起</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">魏福义                        </span> <a
+                    href="javascript:display('swf/421.pdf.swf','')"
+                    class="btn btn-default">线性代数教学内容的结构剖析与实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">王希云                        </span> <a
+                    href="javascript:display('swf/422.pdf.swf','')"
+                    class="btn btn-default">信息化教学环境下的大学数学课程考核方式的探索</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">赵冰                        </span> <a
+                    href="javascript:display('swf/423.pdf.swf','')"
+                    class="btn btn-default">一般地方性高等院校数学基础课教学改革的探索</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">陈敏                        </span> <a
+                    href="javascript:display('swf/424.pdf.swf','')"
+                    class="btn btn-default">以学生为中心，开展实变函数课程教学</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">杨晓叶                        </span> <a
+                    href="javascript:display('swf/425.pdf.swf','')"
+                    class="btn btn-default">应用型人才培养目标下的高等数学课程的改革和实践</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">乔树文                        </span> <a
+                    href="javascript:display('swf/426.pdf.swf','')"
+                    class="btn btn-default">应用型本科院校高等数学课程教学改革的实践与探索</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group"><span
+                    class="btn  btn-primary">侯峻梅                        </span> <a
+                    href="javascript:display('swf/427.pdf.swf','')"
+                    class="btn btn-default">针对高等数学的课堂教学的现状讨论教学改革的实施措施</a></div>
+        </li>
+
+    </ul>
+</div>
+</div>
+
+<div style="padding: 3px;"><img src="images/da.png" class="text-center"/></div>
+<div style="color:white;padding:5px;">
+    高校数学课程教学系列报告会组委会秘书处<br/>
+    联系人：马丽、李蕊、李晓鹏<br/>
+    电话：010-58581382 58581387 58556201<br/>
+    传 真：010-58556022<br/>
+    E-mail：sxlt@pub.hep.cn<br/>
+    通讯地址：北京市朝阳区惠新东街4号富盛大厦20层<br/>
+    邮政编码：100029<br/>
+    网 址：<br/><a href="javascript:toCnCourse();"
+                style="color:white">http://mathforum.cncourse.com</a> </p>
+
+</div>
+</div>
+<div class="col-lg-9" style="padding:8px 15px 0px 0px">
+    <div id="video">
+    </div>
+    <div id="swf">
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540"
+                codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+            <embed width="100%" height="1000px" menu="true" loop="true" play="true" id="swf_obj"
+                   src="swf/jianying.swf" pluginspage="http://www.macromedia.com/go/getflashplayer"
+                   type="application/x-shockwave-flash" wmode="transparent" allowfullscreen="true"
+                   allowfullscreeninteractive="true">
+                <param name="allowFullScreen" value="true">
+                <param name="allowFullScreenInteractive" value="true">
+                <param name="quality" value="high">
+        </object>
+    </div>
+
+</div>
+</div>
+
+<div class="bottom text-center" style="color:white;padding-top: 10px;">
+
+    <p>
+        Copyright © 2014 高等教育出版社 高等教育电子音像出版社 All rights reserved. <a data-toggle="modal"
+                                                                     data-target="#copyright">
+        版权声明
+    </a> <a href="javascript:toGithub()"> <img src="images/cat.png"/></a>
+    </p>
+</div>
+</div>
+
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h2 class="modal-title text-center">联系方式</h2>
+            </div>
+            <div class="modal-body">
+                <p>
+                    联系人：王强 李晓鹏 马丽<br/>
+                    电 话：010-58581388 58556201 58581382<br/>
+                    传 真：010-58556022<br/>
+                    E-mail：sxlt@pub.hep.cn<br/>
+                    联系地址：北京市朝阳区惠新东街4号富盛大厦20层<br/>
+                    大学数学课程报告论坛组委会秘书处<br/>
+                    邮政编码：100029<br/>
+                    网 址：<a href="javascript:toCnCourse();">http://mathforum.cncourse.com</a></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<div class="modal fade" id="copyright" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h2 class="modal-title text-center">版权声明</h2>
+            </div>
+            <div class="modal-body">
+                <p style="text-indent: 2em;">
+                    高等教育出版社、高等教育电子音像出版社依法对本电子出版物享有专有出版权。任何未经许可的复制、销售行为均违反《中华人民共和国著作权法》，其行为人将承担相应的民事责任和行政责任，构成犯罪的，将被依法追究刑事责任。为了维护市场秩序，保护读者的合法权益，避免读者误用盗版书造成不良后果，我社将配合行政执法部门和司法机关对违法犯罪的单位和个人给予严厉打击。社会各界人士如发现上述侵权行为，希望及时举报，本社将奖励举报有功人员。<br/>
+                    反盗版举报电话：（010）58581897/58582371/58581879<br/>
+                    反盗版举报传真：（010）82086060<br/>
+                    E – mail ： dd@hep.com.cn<br/>
+                    通信地址：北京市西城区德外大街4号<br/>
+                    高等教育出版社打击盗版办公室<br/>
+                    邮 编：100120<br/>
+
+                    购书请拨打电话：（010）58581118<br/>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+</body>
+</html>

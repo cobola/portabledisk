@@ -1,0 +1,19 @@
+﻿{
+    "main": "index.html",
+    "name": "luntandisk",
+    "description": "高校数学课程教学系列报告会",
+    "version": "0.1.0",
+    "keywords": [ "高校数学课程教学系列报告会", "报告会" ],
+    "window": {
+        "title": "高校数学课程教学系列报告会",
+        "icon": "icon.png",
+        "toolbar": false,
+        "frame":true, 
+		"width": 1024,
+        "height": 748,
+		"fullscreen": false
+     },
+    "webkit": {
+        "plugin": true
+    }
+}
